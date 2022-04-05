@@ -7,7 +7,8 @@ namespace Taller_2
     public class Equip : Card, IValues
     {
         public TargetAtribute tA;
-        int eP, caseIDTA, caseIDA;
+        public int eP;
+        int caseIDTA, caseIDA;
         public Affinity affinity;
 
         void ApplyValues()
@@ -15,6 +16,7 @@ namespace Taller_2
             cP = rnd.Next(2, 7);
             eP = rnd.Next(1, 3);
             caseIDTA = rnd.Next(0, 3);
+            caseIDA = rnd.Next(0, 3);
 
             switch (caseIDTA)
             {
@@ -26,6 +28,19 @@ namespace Taller_2
                     break;
                 case 3: //All
                     tA = TargetAtribute.ALL;
+                    break;
+            }
+
+            switch (caseIDA)
+            {
+                case 1: //AP
+                    affinity = Affinity.Knight;
+                    break;
+                case 2: //RP
+                    affinity = Affinity.Mage;
+                    break;
+                case 3: //All
+                    affinity = Affinity.Undead;
                     break;
             }
         }

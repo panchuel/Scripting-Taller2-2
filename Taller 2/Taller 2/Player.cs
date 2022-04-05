@@ -6,6 +6,11 @@ namespace Taller_2
 {
     class Player
     {
-        Deck deck;
+        public Deck deck;
+
+        public Player()
+        {
+            deck = new Deck();
+        }
     }
 }

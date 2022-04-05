@@ -34,11 +34,52 @@ namespace Taller_2
 
         public void Equip()
         {
-            if(equip.affinity == Affinity.Knight)
+            //Asign Effect Point
+            if (equip.tA == TargetAtribute.AP) aP += equip.eP;
+            else if (equip.tA == TargetAtribute.RP) rP += equip.eP;
+            else
             {
-                for (int i = 0; i < arrEquip.Length; i++)
+                aP += equip.eP;
+                rP += equip.eP;
+            }
+
+            //Equip
+            if (caseID == 0)
+            {
+
+                if (equip.affinity == Affinity.Knight)
                 {
-                    if (arrEquip[i] == null) arrEquip[i] = equip;
+                    for (int i = 0; i < arrEquip.Length; i++)
+                    {
+                        if (arrEquip[i] == null) arrEquip[i] = equip;
+                        {
+                            
+
+                            
+                        }
+                    }
+                }
+            }
+            
+            else if(caseID == 1)
+            {
+                if (equip.affinity == Affinity.Mage)
+                {
+                    for (int i = 0; i < arrEquip.Length; i++)
+                    {
+                        if (arrEquip[i] == null) arrEquip[i] = equip;
+                    }
+                }
+            }
+
+            else
+            {
+                if (equip.affinity == Affinity.Undead)
+                {
+                    for (int i = 0; i < arrEquip.Length; i++)
+                    {
+                        if (arrEquip[i] == null) arrEquip[i] = equip;
+                    }
                 }
             }
         }
