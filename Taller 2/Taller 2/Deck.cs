@@ -65,7 +65,7 @@ namespace Taller_2
                     case 2: //SupportSkill
                         if (suppTotal >= 0)
                         {
-                            card = new Character();
+                            card = new SupportSkill();
                             if (card.cP <= cP)
                             {
                                 suppTotal -= 1;
