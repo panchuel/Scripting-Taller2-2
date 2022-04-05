@@ -7,6 +7,7 @@ namespace Taller_2
     class Character : Card, IValues
     {
         public int aP, rP;
+        int caseID;
         public Equip equip;
         public Equip[] arrEquip = new Equip[3];
         Affinity affinity;
@@ -17,7 +18,18 @@ namespace Taller_2
             aP = rnd.Next(1, 5);
             rP = rnd.Next(1, 5);
 
-            affinity = Affinity.Knight;
+            switch (caseID)
+            {
+                case 1: //Knight
+                    affinity = Affinity.Knight;
+                    break;
+                case 2: //Mage
+                    affinity = Affinity.Mage;
+                    break;
+                case 3: //Undead
+                    affinity = Affinity.Undead;
+                    break;
+            }
         }
 
         public void Equip()
