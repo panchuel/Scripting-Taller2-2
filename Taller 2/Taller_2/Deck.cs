@@ -86,8 +86,7 @@ namespace Taller_2
             {
                 Console.WriteLine(deckChar[i]);
             }
-
-             
+               
         }
     }
 }
