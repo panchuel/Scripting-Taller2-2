@@ -13,7 +13,7 @@ namespace Taller_2
 
         public void ApplyValues()
         {
-            cP = rnd.Next(2, 7);
+            cP = rnd.Next(1, 7);
             eP = rnd.Next(1, 3);
             caseIDTA = rnd.Next(0, 3);
             caseIDA = rnd.Next(0, 3);

@@ -16,68 +16,62 @@ namespace Taller_2
 
         public Deck()
         {
-            maxCP = rnd.Next(25, 40);
+            maxCP = rnd.Next(20, 50);
             cP = maxCP;
             charTotal = charMax;
             equipTotal = equipMax;
             suppTotal = suppMax;
-            AddCard();
         }
 
         public void AddCard()
         {
-            while(cP >= 0)
-            {
-                caseID = rnd.Next(0, 3);
+            caseID = rnd.Next(0, 3);
 
-                switch (caseID)
-                {
-                    case 0: //Character
-                        if(charTotal > 0)
-                        {
-                            character = new Character();
-                            character.ApplyValues();
-                            if (character.cP <= cP)
-                            {
-                                charTotal -= 1;
-                                cP -= character.cP;
-                                deck.Add(character);
-                            }
-                        }                                                
-                        break;
-                    case 1: //Equip
-                        if (equipTotal > 0)
-                        {
-                            equip = new Equip();
-                            equip.ApplyValues();
-                            if (equip.cP <= cP)
-                            {
-                                equipTotal -= 1;
-                                cP -= equip.cP;
-                                deck.Add(equip);
-                            }
-                        }
-                        break;
-                    case 2: //SupportSkill
-                        if (suppTotal > 0)
-                        {
-                            support = new SupportSkill();
-                            support.ApplyValues();
-                            if (support.cP <= cP)
-                            {
-                                suppTotal -= 1;
-                                cP -= support.cP;
-                                deck.Add(support);
-                            }
-                        }
-                        break;
-                }
-            }
-            for (int i = 0; i < deck.Count; i++)
+            switch (caseID)
             {
-                Console.WriteLine(deck[i]);
+                case 0: //Character
+                    if (charTotal > 0)
+                    {
+                        character = new Character();
+                        character.ApplyValues();
+                        if (character.cP <= cP)
+                        {
+                            charTotal -= 1;
+                            cP -= character.cP;
+                            Console.WriteLine("Coste de carta " + character.cP);
+                            deck.Add(character);
+                        }
+                    }
+                    break;
+                case 1: //Equip
+                    if (equipTotal > 0)
+                    {
+                        equip = new Equip();
+                        equip.ApplyValues();
+                        if (equip.cP <= cP)
+                        {
+                            equipTotal -= 1;
+                            cP -= equip.cP;
+                            Console.WriteLine("Coste de carta " + equip.cP);
+                            deck.Add(equip);
+                        }
+                    }
+                    break;
+                case 2: //SupportSkill
+                    if (suppTotal > 0)
+                    {
+                        support = new SupportSkill();
+                        support.ApplyValues();
+                        if (support.cP <= cP)
+                        {
+                            suppTotal -= 1;
+                            cP -= support.cP;
+                            Console.WriteLine("Coste de carta " + support.cP);
+                            deck.Add(support);
+                        }
+                    }
+                    break;
             }
-               
         }
     }
 }

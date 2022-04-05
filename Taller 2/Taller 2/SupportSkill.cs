@@ -11,6 +11,7 @@ namespace Taller_2
 
         public void ApplyValues()
         {
+            cP = rnd.Next(1, 7);
             eP = rnd.Next(1, 4);
             caseID = rnd.Next(0, 5);
             switch (caseID)

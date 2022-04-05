@@ -15,16 +15,14 @@ namespace Taller_2
 
         public Character()
         {
-            
+            aP = rnd.Next(1, 5);
+            rP = rnd.Next(1, 5);
+            cP = rnd.Next(1, 7);
+            caseID = rnd.Next(0, 3);
         }
 
         public void ApplyValues()
-        {
-            aP = rnd.Next(1, 5);
-            rP = rnd.Next(1, 5);
-            cP = rnd.Next(2, 7);
-
-            caseID = rnd.Next(0,3);
+        {           
             switch (caseID)
             {
                 case 0: //Knight
