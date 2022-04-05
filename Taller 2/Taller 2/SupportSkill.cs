@@ -9,7 +9,7 @@ namespace Taller_2
         int eP, caseID;
         public EffectType eType;
 
-        void ApplyValues()
+        public void ApplyValues()
         {
             eP = rnd.Next(1, 4);
             caseID = rnd.Next(0, 5);

@@ -11,13 +11,6 @@ namespace Taller_2
         int caseIDTA, caseIDA;
         public Affinity affinity;
 
-        public Equip()
-        {
-            eP = 0;
-            caseIDA = 0;
-            caseIDTA = 0;
-        }
-
         public void ApplyValues()
         {
             cP = rnd.Next(2, 7);
@@ -27,26 +20,26 @@ namespace Taller_2
 
             switch (caseIDTA)
             {
-                case 1: //AP
+                case 0: //AP
                     tA = TargetAtribute.AP;
                     break;
-                case 2: //RP
+                case 1: //RP
                     tA = TargetAtribute.RP;
                     break;
-                case 3: //All
+                case 2: //All
                     tA = TargetAtribute.ALL;
                     break;
             }
 
             switch (caseIDA)
             {
-                case 1: //AP
+                case 0: //AP
                     affinity = Affinity.Knight;
                     break;
-                case 2: //RP
+                case 1: //RP
                     affinity = Affinity.Mage;
                     break;
-                case 3: //All
+                case 2: //All
                     affinity = Affinity.Undead;
                     break;
             }

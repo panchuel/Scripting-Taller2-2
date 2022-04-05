@@ -6,30 +6,16 @@ namespace Taller_2
 {
     class GameMain
     {
-        public Player player1, player2;
-        Equip equip;
-        int charCount1, charCount2;
         static void Main(string[] args)
         {
+            Character p1, p2;
             Console.WriteLine("Hello Word");
-            Deck deck = new Deck();
-            Console.WriteLine(deck.cP);
+            p1 = new Character();
+            p1.ApplyValues();
+            p2 = new Character();
+            p2.ApplyValues();
+
+            Console.WriteLine(p2.name);
         }       
-
-        public void Figth()
-        {
-
-        }
-
-        public void DestroyEquip()
-        {
-
-
-        }
-
-        public void Lose()
-        {
-
-        }
     }
 }

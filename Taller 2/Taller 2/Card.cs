@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Taller_2
 {
     public enum Affinity
@@ -38,6 +39,6 @@ namespace Taller_2
     {
         public string name;
         public int cP;
-        public Random rnd;
+        public Random rnd = new Random();
     }
 }

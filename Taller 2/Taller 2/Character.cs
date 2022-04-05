@@ -7,32 +7,39 @@ namespace Taller_2
     class Character : Card, IValues
     {
         public int aP, rP;
-        int caseID;
-        string name;
+        int caseID, nameIndex;
+        string[] namesKnight = { "Knight", "Dark Knight", "a Knight" }, namesMage = { "Mage", "ForestMage", "b Mage" }, namesUndead = { "zombie", "Vampire", "Skeleton" };
         public Equip equip;
         public Equip[] arrEquip = new Equip[3];
         Affinity affinity;
 
         public Character()
         {
-            aP = rnd.Next(1, 5);
-            rP = rnd.Next(1, 5);
-            cP = rnd.Next(2, 7);
-            name = "";          
+            
         }
 
         public void ApplyValues()
         {
+            aP = rnd.Next(1, 5);
+            rP = rnd.Next(1, 5);
+            cP = rnd.Next(2, 7);
+
             caseID = rnd.Next(0,3);
             switch (caseID)
             {
-                case 1: //Knight
+                case 0: //Knight
+                    nameIndex = rnd.Next(0, namesKnight.Length);
+                    name = namesKnight[nameIndex];
                     affinity = Affinity.Knight;
                     break;
-                case 2: //Mage
+                case 1: //Mage
+                    nameIndex = rnd.Next(0, namesMage.Length);
+                    name = namesMage[nameIndex];
                     affinity = Affinity.Mage;
                     break;
-                case 3: //Undead
+                case 2: //Undead
+                    nameIndex = rnd.Next(0, namesUndead.Length);
+                    name = namesUndead[nameIndex];
                     affinity = Affinity.Undead;
                     break;
             }
