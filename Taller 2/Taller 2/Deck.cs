@@ -23,6 +23,7 @@ namespace Taller_2
             charTotal = charMax;
             equipTotal = equipMax;
             suppTotal = suppMax;
+            AddCard();
         }
 
         public Deck()
@@ -32,6 +33,7 @@ namespace Taller_2
             charTotal = charMax;
             equipTotal = equipMax;
             suppTotal = suppMax;
+            AddCard();
         }
 
         public void AddCard()

@@ -14,12 +14,7 @@ namespace Taller_2
             if (option == 1)
             {
                 combat.player1 = new Player();
-                for (int i = 0; i < combat.player1.deck.deckChar.Count; i++)
-                {
-                    Console.WriteLine(combat.player1.deck.deckChar[i].aP);
-                }
-                
-                
+                Console.WriteLine(combat.player1.deck.deckChar.Count);                             
             }
         }
     }

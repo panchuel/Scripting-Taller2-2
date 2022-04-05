@@ -17,83 +17,72 @@ namespace Taller_2
 
         public void Figth()
         {
-            Lose();
-            for (int i = 0; i < player1.deck.deck.Count; i++)
+            //Lose();
+            for (int i = 0; i < player1.deck.deckChar.Count; i++)
             {
-                if(player1.deck.deck[i] == player1.deck.character)
+                while (player1.deck.character.rP >= 0)
                 {
-                    while(player1.deck.character.rP >= 0)
+                    for (int j = 0; j < player2.deck.deckChar.Count; j++)
                     {
-                        for (int j = 0; j < player2.deck.deck.Count; j++)
+                        if (player1.deck.character.aP <= player2.deck.character.aP || player1.deck.character.aP == player2.deck.character.aP || player1.deck.character.aP >= player2.deck.character.aP)
                         {
-                            if (player2.deck.deck[j] == player2.deck.character)
+                            player1.deck.character.rP -= player2.deck.character.aP;
+                            Console.WriteLine(player1.deck.character.rP);
+                            player2.deck.character.rP -= player1.deck.character.aP;
+                            Console.WriteLine(player2.deck.character.rP);
+                            if (player1.deck.character.rP <= 0)
                             {
-                                if (player1.deck.character.aP <= player2.deck.character.aP || player1.deck.character.aP == player2.deck.character.aP || player1.deck.character.aP >= player2.deck.character.aP)
-                                {
-                                    player1.deck.character.rP -= player2.deck.character.aP;
-                                    Console.WriteLine(player1.deck.character.rP);
-                                    player2.deck.character.rP -= player1.deck.character.aP;
-                                    Console.WriteLine(player2.deck.character.rP);
-                                    if (player1.deck.character.rP <= 0) 
-                                    {
-                                        charCount1--;
-                                        player1.deck.deck[i] = null; 
-                                    }
-
-                                    if (player2.deck.character.rP <= 0) 
-                                    {
-                                        charCount2--;
-                                        player1.deck.deck[j] = null; 
-                                    }
-                                    break;
-                                }
+                                charCount1--;
+                                player1.deck.deckChar[i] = null;
                             }
+
+                            if (player2.deck.character.rP <= 0)
+                            {
+                                charCount2--;
+                                player1.deck.deckChar[j] = null;
+                            }
+                            break;
                         }
-                    } 
+                    }
                 }
             }
         }
 
         public void DestroyEquip()
         {
-            for (int i = 0; i < player1.deck.deck.Count; i++)
+            for (int i = 0; i < player1.deck.deckSkill.Count; i++)
             {
-                if (player1.deck.deck[i] == player1.deck.support)
+                if (player1.deck.deckSkill[i].eType == EffectType.DestroyEquip)
                 {
-                    if (player1.deck.support.eType == EffectType.DestroyEquip)
+                    for (int j = 0; j < player2.deck.deckChar.Count; j++)                                                               //Revisa el deck del player 2
                     {
-                        for (int j = 0; j < player2.deck.deck.Count; j++)                                                               //Revisa el deck del player 2
+                        for (int k = 0; k < player2.deck.character.arrEquip.Length; k++)                                                //Revisa los espacios de equipo del character del player 2
                         {
-                            if(player2.deck.deck[j] == player2.deck.character)
+                            if (player2.deck.character.arrEquip[k] != null)                                                             //Destruye el equipamiento del character y resta los respectivos effect points
                             {
-                                for (int k = 0; k < player2.deck.character.arrEquip.Length; k++)                                        //Revisa los espacios de equipo del character del player 2
-                                {                                    
-                                    if (player2.deck.character.arrEquip[k] != null)                                                      //Destruye el equipamiento del character y resta los respectivos effect points
-                                    {
-                                        equip = player2.deck.character.arrEquip[k];
-                                        player2.deck.character.arrEquip[k] = null;
-                                        if (equip.tA == TargetAtribute.AP) player2.deck.character.aP -= equip.eP;
-                                        else if (equip.tA == TargetAtribute.RP) player2.deck.character.rP -= equip.eP;
-                                        else if (equip.tA == TargetAtribute.AP)
-                                        {
-                                            player2.deck.character.aP -= equip.eP;
-                                            player2.deck.character.rP -= equip.eP;
-                                        }
-                                    }                                                                                              
-                                    
-                                    break;
+                                equip = player2.deck.character.arrEquip[k];
+                                player2.deck.character.arrEquip[k] = null;
+                                if (equip.tA == TargetAtribute.AP) player2.deck.character.aP -= equip.eP;
+                                else if (equip.tA == TargetAtribute.RP) player2.deck.character.rP -= equip.eP;
+                                else if (equip.tA == TargetAtribute.AP)
+                                {
+                                    player2.deck.character.aP -= equip.eP;
+                                    player2.deck.character.rP -= equip.eP;
                                 }
-                                if (player2.deck.deck[j] == equip) player2.deck.deck[j] = null;                                         //Destruye el equipamiento del deck
-                                break;
-                            }                           
+                                for (int l = 0; l < player2.deck.deckEquip.Count; l++)
+                                {
+                                    if (player2.deck.deckEquip[l] == equip) player2.deck.deckEquip[l] = null;
+                                }
+                            }
+                            break;
                         }
-                        break;
-                    }                   
+                    }
+                    break;
                 }
             }           
         }
 
-        public void Lose()
+        /*public void Lose()
         {
             for (int i = 0; i < player1.deck.deck.Count; i++)
             {
@@ -107,6 +96,6 @@ namespace Taller_2
 
             if (charCount1 == 0) Console.WriteLine("Perdio el jugador 1");
             if (charCount2 == 0) Console.WriteLine("Perdio el jugador 2");
-        }
+        }*/
     }
 }
