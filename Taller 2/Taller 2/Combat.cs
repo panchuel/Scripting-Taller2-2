@@ -6,13 +6,13 @@ namespace Taller_2
 {
     class Combat
     {
-        public Player player1, player2;
+        public Player p1, p2;
         Equip equip;
         int charCount1, charCount2;
         public Combat()
         {
-            player1 = new Player();
-            player2 = new Player();
+            p1 = new Player();
+            p2 = new Player();
         }
 
         public void Figth()

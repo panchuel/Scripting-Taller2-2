@@ -6,6 +6,7 @@ namespace Taller_2
 {
     class SupportSkill : Card, IValues
     {
+        string[] names = {"ReduceAP", "ReduceRP", "ReduceAll", "DestroyEquip", "RestoreAP"};
         int eP, caseID;
         public EffectType eType;
 
@@ -17,22 +18,27 @@ namespace Taller_2
             switch (caseID)
             {
                 case 0: //ReduceAp
+                    name = names[0];
                     eType = EffectType.ReduceAP;
                     break;
 
                 case 1: //ReduceRP
+                    name = names[1];
                     eType = EffectType.ReduceRP;
                     break;
 
                 case 2: //ReduceAll
+                    name = names[2];
                     eType = EffectType.ReduceAll;
                     break;
 
                 case 3: //DestroyEquip
+                    name = names[3];
                     eType = EffectType.DestroyEquip;
                     break;
 
                 case 4: //RestoreRP
+                    name = names[4];
                     eType = EffectType.RestoreRP;
                     break;
             }

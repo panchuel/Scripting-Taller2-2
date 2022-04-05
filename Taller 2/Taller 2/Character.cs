@@ -8,7 +8,7 @@ namespace Taller_2
     {
         public int aP, rP;
         int caseID, nameIndex;
-        string[] namesKnight = { "Knight", "Dark Knight", "a Knight" }, namesMage = { "Mage", "ForestMage", "b Mage" }, namesUndead = { "zombie", "Vampire", "Skeleton" };
+        string[] namesKnight = { "Knight", "Dark Knight", "Viking" }, namesMage = { "Mage", "ForestMage", "Wizzard" }, namesUndead = { "Zombie", "Vampire", "Skeleton" };
         public Equip equip;
         public Equip[] arrEquip = new Equip[3];
         Affinity affinity;

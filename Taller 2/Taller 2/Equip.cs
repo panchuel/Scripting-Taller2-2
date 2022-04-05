@@ -8,7 +8,9 @@ namespace Taller_2
     {
         public TargetAtribute tA;
         public int eP;
-        int caseIDTA, caseIDA;
+        string[] namesKnight = { "Sheald", "Spear", "Chesplate" }, namesMage = { "Staff", "Hat", "Ring" }, namesUndead = { "Rags", "Cape", "Sword" };
+        public Equip equip;
+        int caseIDTA, caseIDA,nameIndex;
         public Affinity affinity;
 
         public void ApplyValues()
@@ -34,12 +36,18 @@ namespace Taller_2
             switch (caseIDA)
             {
                 case 0: //AP
+                    nameIndex = rnd.Next(0, namesKnight.Length);
+                    name = namesKnight[nameIndex];
                     affinity = Affinity.Knight;
                     break;
                 case 1: //RP
+                    nameIndex = rnd.Next(0, namesMage.Length);
+                    name = namesMage[nameIndex];
                     affinity = Affinity.Mage;
-                    break;
+                    break;                   
                 case 2: //All
+                    nameIndex = rnd.Next(0, namesUndead.Length);
+                    name = namesUndead[nameIndex];
                     affinity = Affinity.Undead;
                     break;
             }
