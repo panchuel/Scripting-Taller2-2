@@ -9,22 +9,10 @@ namespace Taller_2
         public int cP, charTotal, equipTotal, suppTotal, caseID;
         int maxCP, charMax = 5, equipMax = 10, suppMax = 5;
         Random rnd = new Random();
-        public List<Character> deckChar = new List<Character>();
-        public List<Equip> deckEquip = new List<Equip>();
-        public List<SupportSkill> deckSkill = new List<SupportSkill>();
+        public List<Card> deck = new List<Card>();
         public Character character;
         public Equip equip;
         public SupportSkill support;
-
-        public Deck(int cpMax)
-        {
-            maxCP = cpMax;
-            cP = maxCP;
-            charTotal = charMax;
-            equipTotal = equipMax;
-            suppTotal = suppMax;
-            AddCard();
-        }
 
         public Deck()
         {
@@ -45,46 +33,49 @@ namespace Taller_2
                 switch (caseID)
                 {
                     case 0: //Character
-                        if(charTotal >= 0)
+                        if(charTotal > 0)
                         {
                             character = new Character();
+                            character.ApplyValues();
                             if (character.cP <= cP)
                             {
                                 charTotal -= 1;
                                 cP -= character.cP;
-                                deckChar.Add(character);
+                                deck.Add(character);
                             }
                         }                                                
                         break;
                     case 1: //Equip
-                        if (equipTotal >= 0)
+                        if (equipTotal > 0)
                         {
                             equip = new Equip();
+                            equip.ApplyValues();
                             if (equip.cP <= cP)
                             {
                                 equipTotal -= 1;
                                 cP -= equip.cP;
-                                deckEquip.Add(equip);
+                                deck.Add(equip);
                             }
                         }
                         break;
                     case 2: //SupportSkill
-                        if (suppTotal >= 0)
+                        if (suppTotal > 0)
                         {
                             support = new SupportSkill();
+                            support.ApplyValues();
                             if (support.cP <= cP)
                             {
                                 suppTotal -= 1;
                                 cP -= support.cP;
-                                deckSkill.Add(support);
+                                deck.Add(support);
                             }
                         }
                         break;
                 }
             }
-            for (int i = 0; i < deckChar.Count; i++)
+            for (int i = 0; i < deck.Count; i++)
             {
-                Console.WriteLine(deckChar[i]);
+                Console.WriteLine(deck[i]);
             }
                
         }

@@ -11,7 +11,14 @@ namespace Taller_2
         int caseIDTA, caseIDA;
         public Affinity affinity;
 
-        void ApplyValues()
+        public Equip()
+        {
+            eP = 0;
+            caseIDA = 0;
+            caseIDTA = 0;
+        }
+
+        public void ApplyValues()
         {
             cP = rnd.Next(2, 7);
             eP = rnd.Next(1, 3);

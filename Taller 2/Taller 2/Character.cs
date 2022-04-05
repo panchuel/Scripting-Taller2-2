@@ -8,16 +8,22 @@ namespace Taller_2
     {
         public int aP, rP;
         int caseID;
+        string name;
         public Equip equip;
         public Equip[] arrEquip = new Equip[3];
         Affinity affinity;
 
-        void ApplyValues()
+        public Character()
         {
-            cP = rnd.Next(2, 7);
             aP = rnd.Next(1, 5);
             rP = rnd.Next(1, 5);
+            cP = rnd.Next(2, 7);
+            name = "";          
+        }
 
+        public void ApplyValues()
+        {
+            caseID = rnd.Next(0,3);
             switch (caseID)
             {
                 case 1: //Knight
@@ -52,11 +58,6 @@ namespace Taller_2
                     for (int i = 0; i < arrEquip.Length; i++)
                     {
                         if (arrEquip[i] == null) arrEquip[i] = equip;
-                        {
-                            
-
-                            
-                        }
                     }
                 }
             }
