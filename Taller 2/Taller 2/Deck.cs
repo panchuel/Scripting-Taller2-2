@@ -9,7 +9,9 @@ namespace Taller_2
         public int cP, charTotal, equipTotal, suppTotal, caseID;
         int maxCP, charMax = 5, equipMax = 10, suppMax = 5;
         Random rnd = new Random();
-        public List<Card> deck;
+        public List<Character> deckChar = new List<Character>();
+        public List<Equip> deckEquip = new List<Equip>();
+        public List<SupportSkill> deckSkill = new List<SupportSkill>();
         public Character character;
         public Equip equip;
         public SupportSkill support;
@@ -48,7 +50,7 @@ namespace Taller_2
                             {
                                 charTotal -= 1;
                                 cP -= character.cP;
-                                deck.Add(character);
+                                deckChar.Add(character);
                             }
                         }                                                
                         break;
@@ -60,7 +62,7 @@ namespace Taller_2
                             {
                                 equipTotal -= 1;
                                 cP -= equip.cP;
-                                deck.Add(equip);
+                                deckEquip.Add(equip);
                             }
                         }
                         break;
@@ -72,13 +74,17 @@ namespace Taller_2
                             {
                                 suppTotal -= 1;
                                 cP -= support.cP;
-                                deck.Add(support);
+                                deckSkill.Add(support);
                             }
                         }
                         break;
                 }
             }
-            
+            for (int i = 0; i < deckChar.Count; i++)
+            {
+                Console.WriteLine(deckChar[i]);
+            }
+               
         }
     }
 }

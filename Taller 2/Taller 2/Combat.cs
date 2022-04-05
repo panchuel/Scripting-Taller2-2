@@ -6,21 +6,55 @@ namespace Taller_2
 {
     class Combat
     {
-        Player player1, player2;
+        public Player player1, player2;
         Equip equip;
-
+        int charCount1, charCount2;
         public Combat()
         {
             player1 = new Player();
             player2 = new Player();
         }
 
-        void Figth()
+        public void Figth()
         {
+            Lose();
+            for (int i = 0; i < player1.deck.deck.Count; i++)
+            {
+                if(player1.deck.deck[i] == player1.deck.character)
+                {
+                    while(player1.deck.character.rP >= 0)
+                    {
+                        for (int j = 0; j < player2.deck.deck.Count; j++)
+                        {
+                            if (player2.deck.deck[j] == player2.deck.character)
+                            {
+                                if (player1.deck.character.aP <= player2.deck.character.aP || player1.deck.character.aP == player2.deck.character.aP || player1.deck.character.aP >= player2.deck.character.aP)
+                                {
+                                    player1.deck.character.rP -= player2.deck.character.aP;
+                                    Console.WriteLine(player1.deck.character.rP);
+                                    player2.deck.character.rP -= player1.deck.character.aP;
+                                    Console.WriteLine(player2.deck.character.rP);
+                                    if (player1.deck.character.rP <= 0) 
+                                    {
+                                        charCount1--;
+                                        player1.deck.deck[i] = null; 
+                                    }
 
+                                    if (player2.deck.character.rP <= 0) 
+                                    {
+                                        charCount2--;
+                                        player1.deck.deck[j] = null; 
+                                    }
+                                    break;
+                                }
+                            }
+                        }
+                    } 
+                }
+            }
         }
 
-        void DestroyEquip()
+        public void DestroyEquip()
         {
             for (int i = 0; i < player1.deck.deck.Count; i++)
             {
@@ -49,7 +83,7 @@ namespace Taller_2
                                     
                                     break;
                                 }
-                                if (player2.deck.deck[j] == equip) player2.deck.deck[j] = null;
+                                if (player2.deck.deck[j] == equip) player2.deck.deck[j] = null;                                         //Destruye el equipamiento del deck
                                 break;
                             }                           
                         }
@@ -57,6 +91,22 @@ namespace Taller_2
                     }                   
                 }
             }           
+        }
+
+        public void Lose()
+        {
+            for (int i = 0; i < player1.deck.deck.Count; i++)
+            {
+                if (player1.deck.deck[i] == player1.deck.character) charCount1++;
+            }
+
+            for (int i = 0; i < player2.deck.deck.Count; i++)
+            {
+                if (player2.deck.deck[i] == player2.deck.character) charCount2++;
+            }
+
+            if (charCount1 == 0) Console.WriteLine("Perdio el jugador 1");
+            if (charCount2 == 0) Console.WriteLine("Perdio el jugador 2");
         }
     }
 }
