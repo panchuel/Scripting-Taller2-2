@@ -101,10 +101,6 @@ namespace Taller_2
                             Console.WriteLine("Personajes Restantes " + p1.deck.charTotal + " \nCP " + p1.deck.cP);
                         }
 
-                        for (int i = 0; i < p1.deck.deck.Count; i++)
-                        {
-                            Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
-                        }
                     }
                     while (index < 1 || index > 3)
                     {
@@ -118,7 +114,7 @@ namespace Taller_2
                         {
                             Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
                         }
-                        Console.WriteLine("Selecciona con que character atacarás");                                     //Selección del character que atacará
+                        Console.WriteLine("\nSelecciona con que character atacarás");                                     //Selección del character que atacará
                         index = int.Parse(Console.ReadLine());
 
                         while (p1.deck.deck[index] is Equip || p1.deck.deck[index] is SupportSkill)
@@ -138,7 +134,7 @@ namespace Taller_2
                             {
                                 Console.WriteLine(i + 1 + " " + p2.deck.deck[i].name);
                             }
-                            Console.WriteLine("¿Que Character atacarás?");                                              //Selección character a atacar
+                            Console.WriteLine("\n¿Que Character atacarás?");                                              //Selección character a atacar
                             index = int.Parse(Console.ReadLine());
 
                             while (p2.deck.deck[index] is Equip || p2.deck.deck[index] is SupportSkill)
@@ -163,47 +159,47 @@ namespace Taller_2
                                 rp2 = (p2.deck.deck[index] as Character).rP;
                                 ap1 = (p1.deck.deck[index2] as Character).aP;
                                 ap2 = (p2.deck.deck[index] as Character).aP;
-                                Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "       " + "  " + ap2 + " " + rp2);
+                                Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "           " + "  " + ap2 + " " + rp2);
 
                                 rp1 -= ap2;
                                 rp2 -= ap1;
-                                Console.WriteLine("Despues de combate los puntos son");
-                                Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "       " + "  " + ap2 + " " + rp2);
+                                Console.WriteLine("Despues de combate los puntos son\n");
+                                Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "           " + "  " + ap2 + " " + rp2);
 
                                 if (rp2 <= 0)
                                 {
                                     p2.deck.deck[index] = null;
-                                    if(p2.deck.deck[index] == null) Console.WriteLine("Se destruyó la carta de P2");
+                                    if(p2.deck.deck[index] == null) Console.WriteLine("\nSe destruyó la carta de P2");
 
                                 }
                                 else if (rp1 <= 0)
                                 {
                                     p1.deck.deck[index2] = null;
-                                    if (p1.deck.deck[index2] == null) Console.WriteLine("Se destruyó la carta P1");
+                                    if (p1.deck.deck[index2] == null) Console.WriteLine("\nSe destruyó la carta P1");
                                 }
 
                                 while (rp2 > 0 && rp1 > 0)
                                 {
-                                    Console.WriteLine("Pelear de nuevo?\n 1. Si             2. No");
+                                    Console.WriteLine("\nPelear de nuevo?\n 1. Si             2. No");
                                     respuesta = int.Parse(Console.ReadLine());
 
                                     if(respuesta == 1)
                                     {
                                         rp1 -= ap2;
                                         rp2 -= ap1;
-                                        Console.WriteLine("Despues de combate los puntos son");
-                                        Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "       " + "  " + ap2 + " " + rp2);
+                                        Console.WriteLine("Despues de combate los puntos son\n");
+                                        Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "           " + "  " + ap2 + " " + rp2);
 
                                         if (rp2 <= 0)
                                         {
                                             p2.deck.deck[index] = null;
-                                            if (p2.deck.deck[index] == null) Console.WriteLine("Se destruyó la carta de P2");
+                                            if (p2.deck.deck[index] == null) Console.WriteLine("\nSe destruyó la carta de P2");
 
                                         }
                                         else if (rp1 <= 0)
                                         {
                                             p1.deck.deck[index2] = null;
-                                            if (p1.deck.deck[index2] == null) Console.WriteLine("Se destruyó la carta P1");
+                                            if (p1.deck.deck[index2] == null) Console.WriteLine("\nSe destruyó la carta P1");
                                         }
                                     }
                                     else
@@ -221,7 +217,7 @@ namespace Taller_2
                         {
                             Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
                         }
-                        Console.WriteLine("Selecciona con que Skill atacarás (DestroyEquip)");                          //Se selecciona el DestroyEquip
+                        Console.WriteLine("\nSelecciona con que Skill atacarás (DestroyEquip)");                          //Se selecciona el DestroyEquip
                         index = int.Parse(Console.ReadLine());
 
                         while (p1.deck.deck[index] is Equip || p1.deck.deck[index] is Character || (p1.deck.deck[index] as SupportSkill).eType != EffectType.DestroyEquip)
@@ -240,7 +236,7 @@ namespace Taller_2
                             {
                                 Console.WriteLine(i + 1 + " " + p2.deck.deck[i].name);
                             }
-                            Console.WriteLine("¿Que equipo destruiras?");                                              //Selección Equip a destruir
+                            Console.WriteLine("\n¿Que equipo destruiras?");                                              //Selección Equip a destruir
                             index = int.Parse(Console.ReadLine());
 
                             while (p2.deck.deck[index] is Character || p2.deck.deck[index] is SupportSkill)
@@ -250,7 +246,7 @@ namespace Taller_2
                             }
                             if (p2.deck.deck[index] is Equip && p1.deck.deck[index2] is SupportSkill && (p1.deck.deck[index2] as SupportSkill).eType == EffectType.DestroyEquip)
                             {
-                                Console.WriteLine("Se destruyó el equipo " + p2.deck.deck[index].name);
+                                Console.WriteLine("\nSe destruyó el equipo " + p2.deck.deck[index].name);
                                 p2.deck.deck[index] = null;
                             }
                         }
@@ -258,6 +254,10 @@ namespace Taller_2
 
                     if(index == 3)
                     {
+                        for (int i = 0; i < p1.deck.deck.Count; i++)
+                        {
+                            Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
+                        }
                         Console.WriteLine("\nSelecciona que objeto equiparás");                                       //Se selecciona el Objeto a equipar
                         index = int.Parse(Console.ReadLine());
                         
@@ -286,7 +286,7 @@ namespace Taller_2
                                 (p1.deck.deck[index2] as Character).Equip((p1.deck.deck[index2] as Character).equipSlot);
                                 for (int i = 0; i < (p1.deck.deck[index2] as Character).arrEquip.Length; i++)
                                 {
-                                    if(p1.deck.character.arrEquip[i] != null) Console.WriteLine(p1.deck.character.arrEquip[i].name);
+                                    if(p1.deck.character.arrEquip[i] != null) Console.WriteLine("Se equipo " + p1.deck.character.arrEquip[i].name);
                                 }
                                 (p1.deck.deck[index2] as Character).equipSlot++;
                             }   
