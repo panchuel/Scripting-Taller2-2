@@ -9,7 +9,8 @@ namespace Taller_2
     {
         Knight,
         Mage,
-        Undead
+        Undead,
+        All
     }
 
     public enum TargetAtribute

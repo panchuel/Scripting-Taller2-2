@@ -33,6 +33,7 @@ namespace Taller_2
                     break;
 
                 case 3: //DestroyEquip
+                    eP = 0;
                     name = names[3] + " Es un skill";
                     eType = EffectType.DestroyEquip;
                     break;

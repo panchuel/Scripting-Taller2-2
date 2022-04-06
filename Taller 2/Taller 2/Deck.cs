@@ -30,11 +30,14 @@ namespace Taller_2
             switch (caseID)
             {
                 case 0: //Character
-                    if (charTotal > 0)
+                    if (charTotal <= 0)
                     {
-                        character = new Character();                       
+                        break;
+                    }
+                    else
+                    {
+                        character = new Character();
                         character.ApplyValues();
-                        Console.WriteLine(character.rP);
                         if (character.cP <= cP)
                         {
                             charTotal -= 1;
@@ -46,7 +49,11 @@ namespace Taller_2
                     }
                     break;
                 case 1: //Equip
-                    if (equipTotal > 0)
+                    if(equipTotal <= 0)
+                    {
+                        break;
+                    }
+                    else
                     {
                         equip = new Equip();
                         equip.ApplyValues();
@@ -57,10 +64,14 @@ namespace Taller_2
                             Console.WriteLine("Coste de carta " + equip.cP);
                             deck.Add(equip);
                         }
-                    }
+                    }                   
                     break;
                 case 2: //SupportSkill
-                    if (suppTotal > 0)
+                    if (suppTotal <= 0)
+                    {
+                        break;
+                    }
+                    else
                     {
                         support = new SupportSkill();
                         support.ApplyValues();

@@ -18,7 +18,7 @@ namespace Taller_2
             cP = rnd.Next(1, 5);
             eP = rnd.Next(1, 3);
             caseIDTA = rnd.Next(0, 3);
-            caseIDA = rnd.Next(0, 3);
+            caseIDA = rnd.Next(0, 4);
 
             switch (caseIDTA)
             {
@@ -35,20 +35,25 @@ namespace Taller_2
 
             switch (caseIDA)
             {
-                case 0: //AP
+                case 0: //Knight
                     nameIndex = rnd.Next(0, namesKnight.Length);
                     name = namesKnight[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Knight;
                     break;
-                case 1: //RP
+                case 1: //Mage
                     nameIndex = rnd.Next(0, namesMage.Length);
                     name = namesMage[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Mage;
                     break;                   
-                case 2: //All
+                case 2: //Undead
                     nameIndex = rnd.Next(0, namesUndead.Length);
                     name = namesUndead[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Undead;
+                    break;
+                case 3: //All
+                    nameIndex = rnd.Next(0, namesUndead.Length);
+                    name = namesUndead[nameIndex] + " Es un equipamiento";
+                    affinity = Affinity.All;
                     break;
             }
         }

@@ -13,7 +13,7 @@ namespace Taller_2
             p2 = new Player();
             Character ch1, ch2;
 
-            int index, index2, ap1, ap2, rp1, rp2;
+            int index, index2, ap1, ap2, rp1, rp2, respuesta;
 
             Console.WriteLine("BIENVENIDO A SACA CANAS\n" + "1. Genera una baraja aleatoria         2. Combate contra un adversario\n");
             index = int.Parse(Console.ReadLine());
@@ -73,7 +73,7 @@ namespace Taller_2
                     }
                 }
 
-                else if(index == 1 && p1.deck.deck.Count != 0)                                                      //Si hay un Deck generado (porque se marcó antes
+                else if(index == 1 && p1.deck.deck.Count != 0)                                                      //Si hay un Deck generado (porque se marcó antes ver deck)
                 {
                     for (int i = 0; i < p1.deck.deck.Count; i++)
                     {
@@ -89,7 +89,7 @@ namespace Taller_2
                     }
                 }
 
-                if(index == 2)
+                if(index == 2)                                                                                      //Menú De Combate
                 {
                     Console.WriteLine("\n¿Que harás?\n1.Combatir    2.Destruir Equipo");
                     index = int.Parse(Console.ReadLine());
@@ -171,16 +171,58 @@ namespace Taller_2
                                 Console.WriteLine("Despues de combate los puntos son");
                                 Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "       " + "  " + ap2 + " " + rp2);
 
-                                /*if (rp2 <= 0)
+                                if (rp2 <= 0)
                                 {
                                     p2.deck.deck[index] = null;
+                                    if(p2.deck.deck[index] == null) Console.WriteLine("Se destruyó la carta de P2");
+
                                 }
                                 else if (rp1 <= 0)
                                 {
                                     p1.deck.deck[index2] = null;
-                                }*/
+                                    if (p1.deck.deck[index2] == null) Console.WriteLine("Se destruyó la carta P1");
+                                }
+
+                                while (rp2 > 0 && rp1 > 0)
+                                {
+                                    Console.WriteLine("Pelear de nuevo?\n 1. Si             2. No");
+                                    respuesta = int.Parse(Console.ReadLine());
+
+                                    if(respuesta == 1)
+                                    {
+                                        rp1 -= ap2;
+                                        rp2 -= ap1;
+                                        Console.WriteLine("Despues de combate los puntos son");
+                                        Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "       " + "  " + ap2 + " " + rp2);
+
+                                        if (rp2 <= 0)
+                                        {
+                                            p2.deck.deck[index] = null;
+                                            if (p2.deck.deck[index] == null) Console.WriteLine("Se destruyó la carta de P2");
+
+                                        }
+                                        else if (rp1 <= 0)
+                                        {
+                                            p1.deck.deck[index2] = null;
+                                            if (p1.deck.deck[index2] == null) Console.WriteLine("Se destruyó la carta P1");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
                             }
                         }
+                    }
+                    if(index == 2)
+                    {
+                        for (int i = 0; i < p1.deck.deck.Count; i++)
+                        {
+                            Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
+                        }
+                        Console.WriteLine("Selecciona con que Skill atacarás (DestroyEquip)");
+                        index = int.Parse(Console.ReadLine());
                     }
                 }
             }
