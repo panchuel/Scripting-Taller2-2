@@ -14,4 +14,4 @@
 
 ## Instrucciones de uso
 
-- el programa se usas en el main, atravez de opciones numericas.
+- el programa se usas en el main, a través de opciones numéricas.
