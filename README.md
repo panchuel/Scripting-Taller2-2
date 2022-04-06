@@ -21,3 +21,8 @@
 
 ## Fun Fact
 Ferrer se gano barquillos gratis por una semana gracias a encontrar la solución a la penultima dificultad pero perdio un dia gracias a la ultima dificultad
+
+
+# Aclaraciones
+
+En la implementación se dice que debe simular 1 turno, por lo que nosotros lo cumplimos para todos los casos excepto el combate, pues tambien queriamos mostrar que se destruia siempre la carta perdedora del respectivo deck
