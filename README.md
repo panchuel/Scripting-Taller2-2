@@ -19,5 +19,5 @@
 - Para introduccir las entrada de la lista de cartas, es el número de la lista -1
 
 
-##Fun Fact
+## Fun Fact
 -Ferrer se gano barquillos gratis por una semana gracias a encontrar la solución a la penultima dificultad pero perdio un dia gracias a la ultima dificultad
