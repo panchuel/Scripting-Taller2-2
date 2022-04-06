@@ -20,4 +20,4 @@
 
 
 ## Fun Fact
--Ferrer se gano barquillos gratis por una semana gracias a encontrar la solución a la penultima dificultad pero perdio un dia gracias a la ultima dificultad
+Ferrer se gano barquillos gratis por una semana gracias a encontrar la solución a la penultima dificultad pero perdio un dia gracias a la ultima dificultad
