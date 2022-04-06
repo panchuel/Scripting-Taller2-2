@@ -10,8 +10,9 @@ namespace Taller_2
         public int eP;
         string[] namesKnight = { "Sheald", "Spear", "Chesplate" }, namesMage = { "Staff", "Hat", "Ring" }, namesUndead = { "Rags", "Cape", "Sword" };
         public Equip equip;
-        int caseIDTA, caseIDA,nameIndex;
+        int caseIDTA, caseIDA, nameIndex, raretyp;
         public Affinity affinity;
+        public Rarety raeza;
 
         public void ApplyValues()
         {
@@ -19,6 +20,7 @@ namespace Taller_2
             eP = rnd.Next(1, 3);
             caseIDTA = rnd.Next(0, 3);
             caseIDA = rnd.Next(0, 4);
+            raretyp = rnd.Next(0, 3);
 
             switch (caseIDTA)
             {
@@ -37,23 +39,87 @@ namespace Taller_2
             {
                 case 0: //Knight
                     nameIndex = rnd.Next(0, namesKnight.Length);
+                    
                     name = namesKnight[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Knight;
+                    switch (raretyp)
+                    {
+                        case 0:
+                            raeza = Rarety.Common;
+                            break;
+                        case 1:
+                            raeza = Rarety.Rare;
+                            break;
+                        case 2:
+                            raeza = Rarety.SuperRare;
+                            break;
+                        case 3:
+                            raeza = Rarety.UltraRare;
+                            break;
+                    }
                     break;
                 case 1: //Mage
                     nameIndex = rnd.Next(0, namesMage.Length);
+                    
                     name = namesMage[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Mage;
+                    switch (raretyp)
+                    {
+                        case 0:
+                            raeza = Rarety.Common;
+                            break;
+                        case 1:
+                            raeza = Rarety.Rare;
+                            break;
+                        case 2:
+                            raeza = Rarety.SuperRare;
+                            break;
+                        case 3:
+                            raeza = Rarety.UltraRare;
+                            break;
+                    }
                     break;                   
                 case 2: //Undead
                     nameIndex = rnd.Next(0, namesUndead.Length);
+                    
                     name = namesUndead[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Undead;
+                    switch (raretyp)
+                    {
+                        case 0:
+                            raeza = Rarety.Common;
+                            break;
+                        case 1:
+                            raeza = Rarety.Rare;
+                            break;
+                        case 2:
+                            raeza = Rarety.SuperRare;
+                            break;
+                        case 3:
+                            raeza = Rarety.UltraRare;
+                            break;
+                    }
                     break;
                 case 3: //All
                     nameIndex = rnd.Next(0, namesUndead.Length);
+                    
                     name = namesUndead[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.All;
+                    switch (raretyp)
+                    {
+                        case 0:
+                            raeza = Rarety.Common;
+                            break;
+                        case 1:
+                            raeza = Rarety.Rare;
+                            break;
+                        case 2:
+                            raeza = Rarety.SuperRare;
+                            break;
+                        case 3:
+                            raeza = Rarety.UltraRare;
+                            break;
+                    }
                     break;
             }
         }

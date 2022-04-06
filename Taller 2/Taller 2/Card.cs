@@ -40,6 +40,7 @@ namespace Taller_2
     {
         public string name;
         public int cP;
+        public string rarety;
         public Random rnd = new Random();
     }
 }
