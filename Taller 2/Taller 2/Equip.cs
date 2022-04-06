@@ -37,22 +37,22 @@ namespace Taller_2
             {
                 case 0: //Knight
                     nameIndex = rnd.Next(0, namesKnight.Length);
-                    name = namesKnight[nameIndex] + " Es un equipamiento";
+                    name = namesKnight[nameIndex] + " es un equipamiento para caballeros";
                     affinity = Affinity.Knight;
                     break;
                 case 1: //Mage
                     nameIndex = rnd.Next(0, namesMage.Length);
-                    name = namesMage[nameIndex] + " Es un equipamiento";
+                    name = namesMage[nameIndex] + " es un equipamiento para magos";
                     affinity = Affinity.Mage;
                     break;                   
                 case 2: //Undead
                     nameIndex = rnd.Next(0, namesUndead.Length);
-                    name = namesUndead[nameIndex] + " Es un equipamiento";
+                    name = namesUndead[nameIndex] + " es un equipamiento para no muertos";
                     affinity = Affinity.Undead;
                     break;
                 case 3: //All
                     nameIndex = rnd.Next(0, namesUndead.Length);
-                    name = namesUndead[nameIndex] + " Es un equipamiento";
+                    name = namesUndead[nameIndex] + " es un equipamiento para todos";
                     affinity = Affinity.All;
                     break;
             }

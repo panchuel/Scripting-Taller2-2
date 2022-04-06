@@ -11,7 +11,6 @@ namespace Taller_2
             Player p1, p2;
             p1 = new Player();
             p2 = new Player();
-            Character ch1, ch2;
 
             int index, index2, ap1, ap2, rp1, rp2, respuesta;
 
@@ -50,7 +49,7 @@ namespace Taller_2
                     index = int.Parse(Console.ReadLine());
                 }
 
-                if(index == 1 && p1.deck.deck.Count == 0)                                                           //Revisa que no haya un deck creado para el P1
+                if(index == 1 && p1.deck.deck.Count == 0)                                                               //Revisa que no haya un deck creado para el P1
                 {
                     while (p1.deck.cP > 0)
                     {
@@ -73,7 +72,7 @@ namespace Taller_2
                     }
                 }
 
-                else if(index == 1 && p1.deck.deck.Count != 0)                                                      //Si hay un Deck generado (porque se marcó antes ver deck)
+                else if(index == 1 && p1.deck.deck.Count != 0)                                                          //Si hay un Deck generado (porque se marcó antes ver deck)
                 {
                     for (int i = 0; i < p1.deck.deck.Count; i++)
                     {
@@ -89,9 +88,9 @@ namespace Taller_2
                     }
                 }
 
-                if(index == 2)                                                                                      //Menú De Combate
+                if(index == 2)                                                                                          //Menú De Combate
                 {
-                    Console.WriteLine("\n¿Que harás?\n1.Combatir    2.Destruir Equipo");
+                    Console.WriteLine("\n¿Que harás?\n1.Combatir    2.Destruir Equipo           3. Equipar Objetos");
                     index = int.Parse(Console.ReadLine());
                     if(p1.deck.deck.Count == 0)
                     {
@@ -107,19 +106,19 @@ namespace Taller_2
                             Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
                         }
                     }
-                    while (index < 1 || index > 2)
+                    while (index < 1 || index > 3)
                     {
                         Console.WriteLine("\nOpción invalida, intente de nuevo");
                         index = int.Parse(Console.ReadLine());
                     }
 
-                    if(index == 1)
+                    if(index == 1)                                                                                      //Combate
                     {
                         for (int i = 0; i < p1.deck.deck.Count; i++)
                         {
                             Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
                         }
-                        Console.WriteLine("Selecciona con que character atacarás");
+                        Console.WriteLine("Selecciona con que character atacarás");                                     //Selección del character que atacará
                         index = int.Parse(Console.ReadLine());
 
                         while (p1.deck.deck[index] is Equip || p1.deck.deck[index] is SupportSkill)
@@ -139,7 +138,7 @@ namespace Taller_2
                             {
                                 Console.WriteLine(i + 1 + " " + p2.deck.deck[i].name);
                             }
-                            Console.WriteLine("¿Que Character atacarás?");
+                            Console.WriteLine("¿Que Character atacarás?");                                              //Selección character a atacar
                             index = int.Parse(Console.ReadLine());
 
                             while (p2.deck.deck[index] is Equip || p2.deck.deck[index] is SupportSkill)
@@ -215,14 +214,83 @@ namespace Taller_2
                             }
                         }
                     }
+
                     if(index == 2)
                     {
                         for (int i = 0; i < p1.deck.deck.Count; i++)
                         {
                             Console.WriteLine(i + 1 + " " + p1.deck.deck[i].name);
                         }
-                        Console.WriteLine("Selecciona con que Skill atacarás (DestroyEquip)");
+                        Console.WriteLine("Selecciona con que Skill atacarás (DestroyEquip)");                          //Se selecciona el DestroyEquip
                         index = int.Parse(Console.ReadLine());
+
+                        while (p1.deck.deck[index] is Equip || p1.deck.deck[index] is Character || (p1.deck.deck[index] as SupportSkill).eType != EffectType.DestroyEquip)
+                        {
+                            Console.WriteLine("\nOpción invalida, intente de nuevo");
+                            index = int.Parse(Console.ReadLine());
+                        }
+                        if(p1.deck.deck[index] is SupportSkill)
+                        {
+                            index2 = index;
+                            while (p2.deck.cP > 0)
+                            {
+                                p2.deck.AddCard();
+                            }
+                            for (int i = 0; i < p2.deck.deck.Count; i++)
+                            {
+                                Console.WriteLine(i + 1 + " " + p2.deck.deck[i].name);
+                            }
+                            Console.WriteLine("¿Que equipo destruiras?");                                              //Selección Equip a destruir
+                            index = int.Parse(Console.ReadLine());
+
+                            while (p2.deck.deck[index] is Character || p2.deck.deck[index] is SupportSkill)
+                            {
+                                Console.WriteLine("\nOpción invalida, intente de nuevo");
+                                index = int.Parse(Console.ReadLine());
+                            }
+                            if (p2.deck.deck[index] is Equip && p1.deck.deck[index2] is SupportSkill && (p1.deck.deck[index2] as SupportSkill).eType == EffectType.DestroyEquip)
+                            {
+                                Console.WriteLine("Se destruyó el equipo " + p2.deck.deck[index].name);
+                                p2.deck.deck[index] = null;
+                            }
+                        }
+                    }
+
+                    if(index == 3)
+                    {
+                        Console.WriteLine("\nSelecciona que objeto equiparás");                                       //Se selecciona el Objeto a equipar
+                        index = int.Parse(Console.ReadLine());
+                        
+                        while (p1.deck.deck[index] is SupportSkill || p1.deck.deck[index] is Character)
+                        {
+                            Console.WriteLine("\nOpción invalida, intente de nuevo");
+                            index = int.Parse(Console.ReadLine());
+                        }
+
+                        Console.WriteLine("\nSelecciona el personaje al que se lo pondras");                            //Se selecciona el personaje a equipar
+                        index2 = int.Parse(Console.ReadLine());
+
+                        while (p1.deck.deck[index2] is SupportSkill || p1.deck.deck[index2] is Equip)
+                        {
+                            Console.WriteLine("\nOpción invalida, intente de nuevo");
+                            index2 = int.Parse(Console.ReadLine());
+                        }
+
+                        if ((p1.deck.deck[index] as Equip).affinity == (p1.deck.deck[index2] as Character).affinity || (p1.deck.deck[index] as Equip).affinity == Affinity.All)
+                        {
+                            (p1.deck.deck[index2] as Character).equip = new Equip();
+                            (p1.deck.deck[index2] as Character).equip = (p1.deck.deck[index] as Equip);
+                            (p1.deck.deck[index2] as Character).arrEquip[(p1.deck.deck[index2] as Character).equipSlot] = (p1.deck.deck[index2] as Character).equip;                            
+                            if((p1.deck.deck[index2] as Character).equipSlot >= 0 && (p1.deck.deck[index2] as Character).equipSlot < 4)
+                            {
+                                (p1.deck.deck[index2] as Character).Equip((p1.deck.deck[index2] as Character).equipSlot);
+                                for (int i = 0; i < (p1.deck.deck[index2] as Character).arrEquip.Length; i++)
+                                {
+                                    if(p1.deck.character.arrEquip[i] != null) Console.WriteLine(p1.deck.character.arrEquip[i].name);
+                                }
+                                (p1.deck.deck[index2] as Character).equipSlot++;
+                            }   
+                        }
                     }
                 }
             }
