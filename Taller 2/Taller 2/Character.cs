@@ -7,7 +7,7 @@ namespace Taller_2
     class Character : Card, IValues
     {
         public int aP, rP, equipSlot = 0;
-        int caseID, nameIndex;
+        int caseID, nameIndex, raretyp;
         string[] namesKnight = { "Knight", "Dark Knight", "Viking" }, namesMage = { "Mage", "ForestMage", "Wizzard" }, namesUndead = { "Zombie", "Vampire", "Skeleton" };
         public Equip equip;
         public Equip[] arrEquip = new Equip[3];
