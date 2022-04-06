@@ -16,11 +16,11 @@ namespace Taller_2
 
             Console.WriteLine("BIENVENIDO A SACA CANAS\n" + "1. Genera una baraja aleatoria         2. Combate contra un adversario\n");
             index = int.Parse(Console.ReadLine());
-            while(index < 1 || index > 2)
+            /*while(index < 1 || index > 2)
             {
                 Console.WriteLine("Opción invalida, intente de nuevo");              
                 index = int.Parse(Console.ReadLine());
-            }
+            }*/
 
             if(index == 1)                                                                                          //Hace las pruebas de que solo se pueda agregar una carta si el CP de esta es menor o igual al CP restante de la baraja 
             {                                                                                                       //y tambien evalua que se reste el CP de la baraja al añadir una carta
@@ -41,6 +41,12 @@ namespace Taller_2
             if(index == 2)
             {
                 Console.WriteLine("Ahora lo implemento, teta");
+            }
+            if (index == 3) 
+            {
+                Console.WriteLine("gacha");
+
+
             }
         } 
         
