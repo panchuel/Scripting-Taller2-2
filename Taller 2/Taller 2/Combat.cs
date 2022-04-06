@@ -9,6 +9,7 @@ namespace Taller_2
         public Player p1, p2;
         Equip equip;
         int charCount1, charCount2;
+        public int index;
         public Combat()
         {
             p1 = new Player();

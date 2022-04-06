@@ -6,7 +6,7 @@ namespace Taller_2
 {
     class Deck
     {
-        public int cP, charTotal, equipTotal, suppTotal, caseID;
+        public int cP, charTotal, equipTotal, suppTotal, caseID, charCount = 0;
         int maxCP, charMax = 5, equipMax = 10, suppMax = 5;
         Random rnd = new Random();
         public List<Card> deck = new List<Card>();
@@ -16,7 +16,7 @@ namespace Taller_2
 
         public Deck()
         {
-            maxCP = rnd.Next(20, 50);
+            maxCP = rnd.Next(20, 40);
             cP = maxCP;
             charTotal = charMax;
             equipTotal = equipMax;
@@ -32,11 +32,13 @@ namespace Taller_2
                 case 0: //Character
                     if (charTotal > 0)
                     {
-                        character = new Character();
+                        character = new Character();                       
                         character.ApplyValues();
+                        Console.WriteLine(character.rP);
                         if (character.cP <= cP)
                         {
                             charTotal -= 1;
+                            charCount++;
                             cP -= character.cP;
                             Console.WriteLine("Coste de carta " + character.cP);
                             deck.Add(character);

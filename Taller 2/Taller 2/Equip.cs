@@ -15,7 +15,7 @@ namespace Taller_2
 
         public void ApplyValues()
         {
-            cP = rnd.Next(1, 7);
+            cP = rnd.Next(1, 5);
             eP = rnd.Next(1, 3);
             caseIDTA = rnd.Next(0, 3);
             caseIDA = rnd.Next(0, 3);
@@ -37,17 +37,17 @@ namespace Taller_2
             {
                 case 0: //AP
                     nameIndex = rnd.Next(0, namesKnight.Length);
-                    name = namesKnight[nameIndex];
+                    name = namesKnight[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Knight;
                     break;
                 case 1: //RP
                     nameIndex = rnd.Next(0, namesMage.Length);
-                    name = namesMage[nameIndex];
+                    name = namesMage[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Mage;
                     break;                   
                 case 2: //All
                     nameIndex = rnd.Next(0, namesUndead.Length);
-                    name = namesUndead[nameIndex];
+                    name = namesUndead[nameIndex] + " Es un equipamiento";
                     affinity = Affinity.Undead;
                     break;
             }
