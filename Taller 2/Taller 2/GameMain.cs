@@ -149,14 +149,14 @@ namespace Taller_2
                             }
                             if(p2.deck.deck[index] is Character && p1.deck.deck[index2] is Character)
                             {
-                                if ((p1.deck.deck[index] as Character).affinity == Affinity.Knight && (p2.deck.deck[index] as Character).affinity == Affinity.Mage || (p1.deck.deck[index] as Character).affinity == Affinity.Mage && (p2.deck.deck[index] as Character).affinity == Affinity.Undead || (p1.deck.deck[index] as Character).affinity == Affinity.Undead && (p2.deck.deck[index] as Character).affinity == Affinity.Knight)
+                                if ((p1.deck.deck[index2] as Character).affinity == Affinity.Knight && (p2.deck.deck[index] as Character).affinity == Affinity.Mage || (p1.deck.deck[index2] as Character).affinity == Affinity.Mage && (p2.deck.deck[index] as Character).affinity == Affinity.Undead || (p1.deck.deck[index2] as Character).affinity == Affinity.Undead && (p2.deck.deck[index] as Character).affinity == Affinity.Knight)
                                 {
-                                    (p1.deck.deck[index] as Character).aP += 1;
+                                    (p1.deck.deck[index2] as Character).aP += 1;
                                     (p2.deck.deck[index] as Character).aP -= 1;
                                 }
-                                if ((p2.deck.deck[index] as Character).affinity == Affinity.Knight && (p1.deck.deck[index] as Character).affinity == Affinity.Mage || (p2.deck.deck[index] as Character).affinity == Affinity.Mage && (p1.deck.deck[index] as Character).affinity == Affinity.Undead || (p2.deck.deck[index] as Character).affinity == Affinity.Undead && (p1.deck.deck[index] as Character).affinity == Affinity.Knight)
+                                if ((p2.deck.deck[index] as Character).affinity == Affinity.Knight && (p1.deck.deck[index2] as Character).affinity == Affinity.Mage || (p2.deck.deck[index] as Character).affinity == Affinity.Mage && (p1.deck.deck[index2] as Character).affinity == Affinity.Undead || (p2.deck.deck[index] as Character).affinity == Affinity.Undead && (p1.deck.deck[index2] as Character).affinity == Affinity.Knight)
                                 {
-                                    (p1.deck.deck[index] as Character).aP -= 1;
+                                    (p1.deck.deck[index2] as Character).aP -= 1;
                                     (p2.deck.deck[index] as Character).aP += 1;
                                 }
 
@@ -171,14 +171,14 @@ namespace Taller_2
                                 Console.WriteLine("Despues de combate los puntos son");
                                 Console.WriteLine("P1 AP RP" + "            " + "P2 AP RP\n" + "  " + ap1 + " " + rp1 + "       " + "  " + ap2 + " " + rp2);
 
-                                if (rp2 <= 0)
+                                /*if (rp2 <= 0)
                                 {
                                     p2.deck.deck[index] = null;
                                 }
                                 else if (rp1 <= 0)
                                 {
                                     p1.deck.deck[index2] = null;
-                                }
+                                }*/
                             }
                         }
                     }
